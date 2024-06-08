@@ -10,42 +10,45 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using SchoolTimeTable_WPF.Windows;
 
-namespace SchoolTimeTable_WPF
+namespace SchoolTimeTable_WPF.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для AdminWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AdminWindow : Window
     {
-        BasicStep basicStep = new BasicStep();
-        public MainWindow()
+        public AdminWindow()
         {
             InitializeComponent();
-            userControl.Children.Add(basicStep);
 
-            basicStep.Increase += IncreaseProgress;
-            basicStep.Decrease += DecreaseProgress;
+            teacherPage teacherPage = new teacherPage();
+            mainFrame.Content = teacherPage;
         }
-
-        public void IncreaseProgress()
+        private void subjectsButton_Click(object sender, RoutedEventArgs e)
         {
-            progressBar.Value += 30;
+            SubjectsPage subjectsPage = new SubjectsPage();
+            mainFrame.Content = subjectsPage;
         }
-
-        public void DecreaseProgress()
+        private void teacherButton_Click(object sender, RoutedEventArgs e)
         {
-            progressBar.Value -= 30;
+            teacherPage teacherPage = new teacherPage();
+            mainFrame.Content = teacherPage;
         }
+        private void usersButton_Click(object sender, RoutedEventArgs e)
+        {
 
+        }
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddDataPage addDataPage = new AddDataPage();
+            mainFrame.Content = addDataPage;
+        }
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

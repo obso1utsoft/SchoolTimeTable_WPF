@@ -16,23 +16,72 @@
     </UserControl.Resources>
     <Grid Background="White">
         <Button
-            x:Name="button2" Height="55" Width="150" Margin="0,0,30,15" Background="#FF78E6AA" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderThickness="1,1,1,1" BorderBrush="Black" FontSize="20" FontWeight="Bold" FontFamily="Segoe" Click="button2_Click" Content="Далее"/>
+            x:Name="button2" Height="55" Width="150" 
+            Margin="0,0,30,15" Background="#FF78E6AA" 
+            HorizontalAlignment="Right" VerticalAlignment="Bottom"
+            BorderThickness="1,1,1,1" BorderBrush="Black" 
+            FontSize="20" FontWeight="Bold" FontFamily="Segoe"
+            Click="button2_Click" Content="Далее"/>
         <Button
-            x:Name="button1" Height="55" Width="150" Margin="30,0,0,15" Background="#FF78E6AA" HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderThickness="1,1,1,1" BorderBrush="Black" FontSize="20" FontWeight="Bold" FontFamily="Segoe" Click="button1_Click" Content="Назад"/>
+            x:Name="button1" Height="55" Width="150"
+            Margin="30,0,0,15" Background="#FF78E6AA" 
+            HorizontalAlignment="Left" VerticalAlignment="Bottom" 
+            BorderThickness="1,1,1,1" BorderBrush="Black" 
+            FontSize="20" FontWeight="Bold" FontFamily="Segoe"
+            Click="button1_Click" Content="Назад"/>
         <Button
-            x:Name="button3" Height="55" Width="150" Margin="0,0,30,75" Background="#FF78E6AA" HorizontalAlignment="Center" VerticalAlignment="Bottom" BorderThickness="1,1,1,1" BorderBrush="Black" FontSize="20" FontWeight="Bold" FontFamily="Segoe" Click="button3_Click" Content="Добавить"/>
-        <TextBlock FontSize="25" FontWeight="Bold" FontFamily="Segoe" Margin="30,20,0,0" Height="60" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"><Run Text="Учебный план"/><LineBreak /><Run Text="Для "/><LineBreak /></TextBlock>
-        <TextBlock x:Name="classNumber" FontSize="25" FontWeight="Bold" FontFamily="Segoe" Margin="90,50,0,0" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Top">11</TextBlock>
-        <TextBox x:Name="className" FontSize="25" FontWeight="Bold" FontFamily="Segoe" Margin="125,50,0,0" Height="25" Width="40" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-        <TextBlock FontSize="25" FontWeight="Bold" FontFamily="Segoe" Margin="180,50,0,0" Height="30" Width="85" HorizontalAlignment="Left" VerticalAlignment="Top">класса</TextBlock>
-        <TextBlock x:Name="errorLabel" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Center" FontSize="20" FontWeight="DemiBold" FontFamily="Segoe" Margin="50,60,0,0" Foreground="Red" Visibility="Hidden"><LineBreak />Укажите имя класса!</TextBlock>
-        <TextBlock FontSize="20" FontWeight="DemiBold" FontFamily="Segoe" VerticalAlignment="Center" Margin="40,0,0,130">Укажите предмет</TextBlock>
-        <TextBlock FontSize="20" FontWeight="DemiBold" FontFamily="Segoe" VerticalAlignment="Center" Margin="40,0,0,35">Укажите преподавателя</TextBlock>
-        <TextBlock FontSize="20" FontWeight="DemiBold" FontFamily="Segoe" VerticalAlignment="Center" Margin="40,80,0,0">Определите число часов<LineBreak/>в неделю</TextBlock>
-        <ComboBox x:Name="tb_subject" SelectionChanged="tb_subject_SelectionChanged" Width="175" Height="30" FontSize="20" FontWeight="DemiBold" FontFamily="Segoe" VerticalAlignment="Center" Margin="0,0,45,130"></ComboBox>
-        <ComboBox x:Name="tb_teacher" Width="175" Height="30" FontSize="20" FontWeight="DemiBold" FontFamily="Segoe" VerticalAlignment="Center" Margin="0,0,45,35"></ComboBox>
-        <xctk:IntegerUpDown x:Name="iud_hours" Height="30" Width="80" Margin="0,75,140,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe"/>
-        <DataGrid x:Name="dg_attachments" Width="300" Height="400" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,20,20,0">
+            x:Name="button3" Height="55" Width="150" 
+            Margin="0,0,30,75" Background="#FF78E6AA" 
+            HorizontalAlignment="Center" VerticalAlignment="Bottom" 
+            BorderThickness="1,1,1,1" BorderBrush="Black" 
+            FontSize="20" FontWeight="Bold" FontFamily="Segoe" 
+            Click="button3_Click" Content="Добавить"/>
+        <TextBlock FontSize="25" FontWeight="Bold" 
+                   FontFamily="Segoe" Margin="30,20,0,0" 
+                   Height="60" Width="180" HorizontalAlignment="Left"
+                   VerticalAlignment="Top"><Run Text="Учебный план"/>
+            <LineBreak /><Run Text="Для "/><LineBreak /></TextBlock>
+        <TextBlock x:Name="classNumber" FontSize="25" 
+                   FontWeight="Bold" FontFamily="Segoe" 
+                   Margin="90,50,0,0" Height="30" Width="30"
+                   HorizontalAlignment="Left" VerticalAlignment="Top">11</TextBlock>
+        <TextBox x:Name="className" FontSize="25" 
+                 FontWeight="Bold" FontFamily="Segoe" 
+                 Margin="125,50,0,0" Height="25" Width="40" 
+                 HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+        <TextBlock FontSize="25" FontWeight="Bold" 
+                   FontFamily="Segoe" Margin="180,50,0,0"
+                   Height="30" Width="85" HorizontalAlignment="Left" 
+                   VerticalAlignment="Top">класса</TextBlock>
+        <TextBlock x:Name="errorLabel" VerticalAlignment="Top"
+                   HorizontalAlignment="Left" TextAlignment="Center"
+                   FontSize="20" FontWeight="DemiBold" FontFamily="Segoe"
+                   Margin="50,60,0,0" Foreground="Red" Visibility="Hidden">
+            <LineBreak />Укажите имя класса!</TextBlock>
+        <TextBlock FontSize="20" FontWeight="DemiBold" 
+                   FontFamily="Segoe" VerticalAlignment="Center"
+                   Margin="40,0,0,130">Укажите предмет</TextBlock>
+        <TextBlock FontSize="20" FontWeight="DemiBold" 
+                   FontFamily="Segoe" VerticalAlignment="Center" 
+                   Margin="40,0,0,35">Укажите преподавателя</TextBlock>
+        <TextBlock FontSize="20" FontWeight="DemiBold" 
+                   FontFamily="Segoe" VerticalAlignment="Center" 
+                   Margin="40,80,0,0">Определите число часов<LineBreak/>в неделю</TextBlock>
+        <ComboBox x:Name="tb_subject" SelectionChanged="tb_subject_SelectionChanged"
+                  Width="175" Height="30" FontSize="20" FontWeight="DemiBold"
+                  FontFamily="Segoe" VerticalAlignment="Center" Margin="0,0,45,130"></ComboBox>
+        <ComboBox x:Name="tb_teacher" Width="175" Height="30"
+                  FontSize="20" FontWeight="DemiBold" 
+                  FontFamily="Segoe" VerticalAlignment="Center" 
+                  Margin="0,0,45,35"></ComboBox>
+        <xctk:IntegerUpDown x:Name="iud_hours" Height="30" 
+                            Width="80" Margin="0,75,140,0" 
+                            Maximum="10" Minimum="1" Value="1" 
+                            TextAlignment="Center" FontSize="17" 
+                            FontWeight="DemiBold" FontFamily="Segoe"/>
+        <DataGrid x:Name="dg_attachments" Width="300" 
+                  Height="400" VerticalAlignment="Top" 
+                  HorizontalAlignment="Right" Margin="0,20,20,0">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="FontFamily" Value="Segoe"/>
@@ -41,11 +90,23 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Предмет" Binding="{Binding Subject}" Width="100" FontFamily="Segoe" FontWeight="DemiBold" FontSize="17"></DataGridTextColumn>
-                <DataGridTextColumn Header="Преподаватель" Binding="{Binding Teacher}" Width="110" FontFamily="Segoe" FontWeight="DemiBold" FontSize="17"></DataGridTextColumn>
-                <DataGridTextColumn Header="Число часов" Binding="{Binding NumOfHours}" Width="85" FontFamily="Segoe" FontWeight="DemiBold" FontSize="17"></DataGridTextColumn>
+                <DataGridTextColumn Header="Предмет" 
+                                    Binding="{Binding Subject}" 
+                                    Width="100" FontFamily="Segoe" 
+                                    FontWeight="DemiBold" FontSize="17"/>
+                <DataGridTextColumn Header="Преподаватель" 
+                                    Binding="{Binding Teacher}" 
+                                    Width="110" FontFamily="Segoe" 
+                                    FontWeight="DemiBold" FontSize="17"/>
+                <DataGridTextColumn Header="Число часов" 
+                                    Binding="{Binding NumOfHours}" 
+                                    Width="85" FontFamily="Segoe" 
+                                    FontWeight="DemiBold" FontSize="17"/>
             </DataGrid.Columns>
         </DataGrid>
-        <WrapPanel x:Name="userControl" Height="505" Width="800" Margin="0,0,0,0" Orientation="Vertical" HorizontalAlignment="Stretch"/>
+        <WrapPanel x:Name="userControl" Height="505" 
+                   Width="800" Margin="0,0,0,0" 
+                   Orientation="Vertical" 
+                   HorizontalAlignment="Stretch"/>
     </Grid>
 </UserControl>

@@ -8,11 +8,25 @@
              d:DesignHeight="505" d:DesignWidth="800">
     <Grid Background="White">
         <Label 
-            FontFamily="Segoe" FontSize="25" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,145" Content="Выберите систему обучения:"/>
+            FontFamily="Segoe" FontSize="25" FontWeight="Bold"
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            Margin="0,0,0,145" Content="Выберите систему обучения:"/>
         <Button
-            x:Name="button1" Height="90" Width="220" Margin="0,15,250,0" Background="#FF78E6AA" BorderThickness="1,1,1,1" FontSize="25" FontWeight="Bold" FontFamily="Segoe" Click="button1_Click" Content="5-ти дневная" BorderBrush="Black"/>
+            x:Name="button1" Height="90" Width="220"
+            Margin="0,15,250,0" Background="#FF78E6AA"
+            BorderThickness="1,1,1,1" FontSize="25"
+            FontWeight="Bold" FontFamily="Segoe"
+            Click="button1_Click" Content="5-ти дневная" 
+            BorderBrush="Black"/>
         <Button
-            x:Name="button2" Height="90" Width="220" Margin="250,15,0,0" Background="#FF78E6AA" BorderThickness="1,1,1,1" FontSize="25" FontWeight="Bold" FontFamily="Segoe" Click="button2_Click" Content="6-ти дневная" BorderBrush="Black"/>
-        <WrapPanel x:Name="userControl" Height="505" Width="800" Margin="0,0,0,0" Orientation="Vertical" HorizontalAlignment="Stretch"/>
+            x:Name="button2" Height="90" Width="220"
+            Margin="250,15,0,0" Background="#FF78E6AA" 
+            BorderThickness="1,1,1,1" FontSize="25" 
+            FontWeight="Bold" FontFamily="Segoe" 
+            Click="button2_Click" Content="6-ти дневная"
+            BorderBrush="Black"/>
+        <WrapPanel x:Name="userControl" Height="505" Width="800" 
+                   Margin="0,0,0,0" Orientation="Vertical" 
+                   HorizontalAlignment="Stretch"/>
     </Grid>
 </UserControl>

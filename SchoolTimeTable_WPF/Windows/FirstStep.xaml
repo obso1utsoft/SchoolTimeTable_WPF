@@ -9,41 +9,181 @@
              d:DesignHeight="505" d:DesignWidth="800">
 
     <Grid Background="White">
-        <TextBlock Margin="30,15,0,0" FontSize="25" FontFamily="Segoe" FontWeight="Bold"><Run Text="Для каких классов"/><LineBreak /><Run Text="требуется разработать"/><LineBreak /><Run Text="расписание?"/>
+        <TextBlock Margin="30,15,0,0" FontSize="25" 
+                   FontFamily="Segoe" FontWeight="Bold">
+            <Run Text="Для каких классов"/>
+            <LineBreak />
+            <Run Text="требуется разработать"/>
+            <LineBreak /><Run Text="расписание?"/>
         </TextBlock>
         <Button
-            x:Name="button2" Height="55" Width="150" Margin="0,0,30,15" Background="#FF78E6AA" HorizontalAlignment="Right" VerticalAlignment="Bottom" BorderThickness="1,1,1,1" BorderBrush="Black" FontSize="20" FontWeight="Bold" FontFamily="Segoe" Click="button2_Click" Content="Далее"/>
+            x:Name="button2" Height="55" Width="150"
+            Margin="0,0,30,15" Background="#FF78E6AA"
+            HorizontalAlignment="Right" VerticalAlignment="Bottom"
+            BorderThickness="1,1,1,1" BorderBrush="Black" 
+            FontSize="20" FontWeight="Bold" FontFamily="Segoe" 
+            Click="button2_Click" Content="Далее"/>
         <Button
-            x:Name="button1" Height="55" Width="150" Margin="30,0,0,15" Background="#FF78E6AA" HorizontalAlignment="Left" VerticalAlignment="Bottom" BorderThickness="1,1,1,1" BorderBrush="Black" FontSize="20" FontWeight="Bold" FontFamily="Segoe" Click="button1_Click" Content="Назад"/>
-        <StackPanel x:Name="checkCollection" Orientation="Vertical" Margin="450,20,240,0">
-            <CheckBox x:Name="checkBoxAll" Content="Для всех" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,15,0,0" FlowDirection="RightToLeft" Click="checkBoxAll_Click"/>
-            <CheckBox x:Name="checkBox1" Content="1" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
-            <CheckBox x:Name="checkBox2" Content="2" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
-            <CheckBox x:Name="checkBox3" Content="3" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
-            <CheckBox x:Name="checkBox4" Content="4" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
-            <CheckBox x:Name="checkBox5" Content="5" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
-            <CheckBox x:Name="checkBox6" Content="6" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
-            <CheckBox x:Name="checkBox7" Content="7" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
-            <CheckBox x:Name="checkBox8" Content="8" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
-            <CheckBox x:Name="checkBox9" Content="9" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
-            <CheckBox x:Name="checkBox10" Content="10" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
-            <CheckBox x:Name="checkBox11" Content="11" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,10,0,0" FlowDirection="RightToLeft" Checked="checkBox_Click" Unchecked="checkBox_Click"/>
+            x:Name="button1" Height="55" Width="150"
+            Margin="30,0,0,15" Background="#FF78E6AA"
+            HorizontalAlignment="Left" VerticalAlignment="Bottom"
+            BorderThickness="1,1,1,1" BorderBrush="Black" 
+            FontSize="20" FontWeight="Bold" FontFamily="Segoe"
+            Click="button1_Click" Content="Назад"/>
+        <StackPanel x:Name="checkCollection" 
+                    Orientation="Vertical" Margin="450,20,240,0">
+            <CheckBox x:Name="checkBoxAll" Content="Для всех"
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,15,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Click="checkBoxAll_Click"/>
+            <CheckBox x:Name="checkBox1" Content="1" 
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Checked="checkBox_Click" 
+                      Unchecked="checkBox_Click"/>
+            <CheckBox x:Name="checkBox2" Content="2" 
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Checked="checkBox_Click" 
+                      Unchecked="checkBox_Click"/>
+            <CheckBox x:Name="checkBox3" Content="3" 
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Checked="checkBox_Click" 
+                      Unchecked="checkBox_Click"/>
+            <CheckBox x:Name="checkBox4" Content="4"
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Checked="checkBox_Click" 
+                      Unchecked="checkBox_Click"/>
+            <CheckBox x:Name="checkBox5" Content="5" 
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Checked="checkBox_Click"
+                      Unchecked="checkBox_Click"/>
+            <CheckBox x:Name="checkBox6" Content="6" 
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Checked="checkBox_Click" 
+                      Unchecked="checkBox_Click"/>
+            <CheckBox x:Name="checkBox7" Content="7" 
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Checked="checkBox_Click" 
+                      Unchecked="checkBox_Click"/>
+            <CheckBox x:Name="checkBox8" Content="8" 
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft"
+                      Checked="checkBox_Click" 
+                      Unchecked="checkBox_Click"/>
+            <CheckBox x:Name="checkBox9" Content="9" 
+                      FontSize="17" FontWeight="DemiBold"
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Checked="checkBox_Click" 
+                      Unchecked="checkBox_Click"/>
+            <CheckBox x:Name="checkBox10" Content="10" 
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Checked="checkBox_Click"
+                      Unchecked="checkBox_Click"/>
+            <CheckBox x:Name="checkBox11" Content="11" 
+                      FontSize="17" FontWeight="DemiBold" 
+                      FontFamily="Segoe" Margin="0,10,0,0" 
+                      FlowDirection="RightToLeft" 
+                      Checked="checkBox_Click" 
+                      Unchecked="checkBox_Click"/>
         </StackPanel>
-        <StackPanel x:Name="numCollection" Orientation="Vertical" Margin="555,20,60,0">
-            <TextBlock x:Name="label" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,0,0,0" TextAlignment="Center" Visibility="Hidden">Введите<LineBreak />количество</TextBlock>
-            <xctk:IntegerUpDown x:Name="num1" Height="25" Width="80" Margin="0,0,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
-            <xctk:IntegerUpDown x:Name="num2" Height="25" Width="80" Margin="0,4,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
-            <xctk:IntegerUpDown x:Name="num3" Height="25" Width="80" Margin="0,4,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
-            <xctk:IntegerUpDown x:Name="num4" Height="25" Width="80" Margin="0,4,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
-            <xctk:IntegerUpDown x:Name="num5" Height="25" Width="80" Margin="0,4,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
-            <xctk:IntegerUpDown x:Name="num6" Height="25" Width="80" Margin="0,4,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
-            <xctk:IntegerUpDown x:Name="num7" Height="25" Width="80" Margin="0,4,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
-            <xctk:IntegerUpDown x:Name="num8" Height="25" Width="80" Margin="0,4,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
-            <xctk:IntegerUpDown x:Name="num9" Height="25" Width="80" Margin="0,4,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
-            <xctk:IntegerUpDown x:Name="num10" Height="25" Width="80" Margin="0,4,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
-            <xctk:IntegerUpDown x:Name="num11" Height="25" Width="80" Margin="0,4,0,0" Maximum="10" Minimum="1" Value="1" TextAlignment="Center" FontSize="17" FontWeight="DemiBold" FontFamily="Segoe" Visibility="Hidden"/>
+        <StackPanel x:Name="numCollection" 
+                    Orientation="Vertical" 
+                    Margin="555,20,60,0">
+            <TextBlock x:Name="label" FontSize="17" FontWeight="DemiBold"
+                       FontFamily="Segoe" Margin="0,0,0,0" 
+                       TextAlignment="Center" Visibility="Hidden">
+                       Введите<LineBreak />количество</TextBlock>
+            <xctk:IntegerUpDown x:Name="num1" Height="25" 
+                                Width="80" Margin="0,0,0,0" 
+                                Maximum="10" Minimum="1" 
+                                Value="1" TextAlignment="Center" 
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
+            <xctk:IntegerUpDown x:Name="num2" Height="25" 
+                                Width="80" Margin="0,4,0,0" 
+                                Maximum="10" Minimum="1" 
+                                Value="1" TextAlignment="Center" 
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
+            <xctk:IntegerUpDown x:Name="num3" Height="25" 
+                                Width="80" Margin="0,4,0,0" 
+                                Maximum="10" Minimum="1" 
+                                Value="1" TextAlignment="Center" 
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
+            <xctk:IntegerUpDown x:Name="num4" Height="25" 
+                                Width="80" Margin="0,4,0,0" 
+                                Maximum="10" Minimum="1" 
+                                Value="1" TextAlignment="Center" 
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
+            <xctk:IntegerUpDown x:Name="num5" Height="25" 
+                                Width="80" Margin="0,4,0,0" 
+                                Maximum="10" Minimum="1" 
+                                Value="1" TextAlignment="Center" 
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
+            <xctk:IntegerUpDown x:Name="num6" Height="25"
+                                Width="80" Margin="0,4,0,0" 
+                                Maximum="10" Minimum="1" 
+                                Value="1" TextAlignment="Center" 
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
+            <xctk:IntegerUpDown x:Name="num7" Height="25" 
+                                Width="80" Margin="0,4,0,0" 
+                                Maximum="10" Minimum="1" 
+                                Value="1" TextAlignment="Center" 
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
+            <xctk:IntegerUpDown x:Name="num8" Height="25" 
+                                Width="80" Margin="0,4,0,0" 
+                                Maximum="10" Minimum="1" 
+                                Value="1" TextAlignment="Center"
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
+            <xctk:IntegerUpDown x:Name="num9" Height="25" 
+                                Width="80" Margin="0,4,0,0" 
+                                Maximum="10" Minimum="1"
+                                Value="1" TextAlignment="Center" 
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
+            <xctk:IntegerUpDown x:Name="num10" Height="25" 
+                                Width="80" Margin="0,4,0,0" 
+                                Maximum="10" Minimum="1" 
+                                Value="1" TextAlignment="Center" 
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
+            <xctk:IntegerUpDown x:Name="num11" Height="25" 
+                                Width="80" Margin="0,4,0,0" 
+                                Maximum="10" Minimum="1" 
+                                Value="1" TextAlignment="Center" 
+                                FontSize="17" FontWeight="DemiBold" 
+                                FontFamily="Segoe" Visibility="Hidden"/>
         </StackPanel>
-        <TextBlock x:Name="errorLabel" VerticalAlignment="Bottom" HorizontalAlignment="Center" TextAlignment="Center" FontSize="20" FontWeight="DemiBold" FontFamily="Segoe" Margin="0,0,0,50" Foreground="Red" Visibility="Hidden">Необходимо выбрать<LineBreak />хотя бы 1 класс!</TextBlock>
-        <WrapPanel x:Name="userControl" Height="505" Width="800" Margin="0,0,0,0" Orientation="Vertical" HorizontalAlignment="Stretch"/>    
+        <TextBlock x:Name="errorLabel" VerticalAlignment="Bottom"
+                   HorizontalAlignment="Center" TextAlignment="Center" 
+                   FontSize="20" FontWeight="DemiBold" FontFamily="Segoe"
+                   Margin="0,0,0,50" Foreground="Red" Visibility="Hidden">
+                   Необходимо выбрать<LineBreak />хотя бы 1 класс!</TextBlock>
+        <WrapPanel x:Name="userControl" Height="505" Width="800" Margin="0,0,0,0"
+                   Orientation="Vertical" HorizontalAlignment="Stretch"/>    
     </Grid>
 </UserControl>

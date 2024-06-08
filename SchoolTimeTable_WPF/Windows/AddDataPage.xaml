@@ -1,0 +1,158 @@
+﻿<Page x:Class="SchoolTimeTable_WPF.Windows.AddDataPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SchoolTimeTable_WPF.Windows"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="750"
+      Background="White">
+    <Page.Resources>
+        <Style x:Key="MyButton" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <StackPanel Orientation="Vertical" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 20 0 0">
+        <Border Margin="0 0 0 10" CornerRadius="6" BorderBrush="Gray" Background="LightGray" BorderThickness="2" Padding="10 20 10 0">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 20">
+                    <StackPanel Orientation="Horizontal" Margin="0 0 50 0">
+                        <TextBlock Text="Предмет: " FontSize="20" />
+                        <TextBox Name="subjectTextBox" Width="150" VerticalContentAlignment="Bottom" TextWrapping="Wrap" FontSize="16" Background="#FFE5E5E5"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Преподаватель: " FontSize="20"/>
+                        <TextBox Name="teacherTextBox" Width="150" VerticalContentAlignment="Bottom" TextWrapping="Wrap" FontSize="16" Background="#FFE5E5E5"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button Name="addDataButton" Click="addDataButton_Click" Width="120" Margin="0 0 0 10" FontSize="20" FontWeight="Bold" Background="#FFE5E5E5">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock Text="Добавить" VerticalAlignment="Center" Height="30"/>
+                </Button>
+            </StackPanel>
+        </Border>
+        <Border CornerRadius="6" BorderBrush="Gray" Background="LightGray" BorderThickness="2" Padding="10 20 10 20">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Vertical" Margin="0 0 50 0" Width="300">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Преподаватель: " FontSize="20"/>
+                            <ComboBox Width="145" Name="teacherComboBox" SelectionChanged="teacherComboBox_SelectionChanged" VerticalContentAlignment="Bottom"/>
+                        </StackPanel>
+                        <Button Content="Добавить предмет" Width="200" Name="addTeacherButton" Click="addTeacherButton_Click" Margin="0 10 0 10" Background="#FFE5E5E5">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <ListBox Name="listBoxTeacher" ItemsSource="{Binding ItemsTeacher}" BorderThickness="0 0 0 0"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="200" Width="200" Background="LightGray">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <WrapPanel>
+                                        <ComboBox ItemsSource="{Binding cbItemsTeacher}" SelectedItem="{Binding SelectedcbItemTeacher}"
+                                          SelectionChanged="ComboBoxTeacher_SelectionChanged" Width="150"
+                                          VerticalContentAlignment="Bottom">
+                                            <ComboBox.ItemContainerStyle>
+                                                <Style TargetType="ComboBoxItem">
+                                                    <EventSetter Event="RequestBringIntoView" Handler="ComboBox_RequestBringIntoView"/>
+                                                </Style>
+                                            </ComboBox.ItemContainerStyle>
+                                        </ComboBox>
+                                        <Button Click="deleteTeacher_Click" Height="20" Width="20" Style="{StaticResource MyButton}">
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="Resources/icons8-delete-64.png" Stretch="Uniform"/>
+                                            </Button.Background>
+                                        </Button>
+                                    </WrapPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.Resources>
+                                <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMouseOver,RelativeSource={RelativeSource Self}}" Value="True">
+                                            <Setter Property="IsSelected" Value="True" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListBox.Resources>
+                        </ListBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical"  Width="200">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Класс: " FontSize="20"/>
+                            <ComboBox Name="classComboBox" Width="100" SelectionChanged="classComboBox_SelectionChanged" VerticalContentAlignment="Bottom"/>
+                        </StackPanel>
+                        <Button Content="Добавить предмет" Name="addSubjectButton" Click="addSubjectButton_Click" Margin="0 10 0 10" Width="200" Background="#FFE5E5E5">
+                            <Button.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="10"/>
+                                </Style>
+                            </Button.Resources>
+                        </Button>
+                        <ListBox Name="listBoxSubject" ItemsSource="{Binding Items}" BorderThickness="0 0 0 0"
+                                 ScrollViewer.VerticalScrollBarVisibility="Auto" MaxHeight="200" Width="200" Background="LightGray">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <WrapPanel>
+                                        <ComboBox ItemsSource="{Binding cbItems}" SelectedItem="{Binding SelectedcbItem}"
+                                          SelectionChanged="ComboBoxSubject_SelectionChanged" Width="150"
+                                          VerticalContentAlignment="Bottom">
+                                            <ComboBox.ItemContainerStyle>
+                                                <Style TargetType="ComboBoxItem">
+                                                    <EventSetter Event="RequestBringIntoView" Handler="ComboBox_RequestBringIntoView"/>
+                                                </Style>
+                                            </ComboBox.ItemContainerStyle>
+                                        </ComboBox>
+                                        <Button Click="deleteSubject_Click" Height="20" Width="20" Style="{StaticResource MyButton}">
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="Resources/icons8-delete-64.png" Stretch="Uniform"/>
+                                            </Button.Background>
+                                        </Button>
+                                    </WrapPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.Resources>
+                                <Style TargetType="ListBoxItem" BasedOn="{StaticResource {x:Type ListBoxItem}}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsMouseOver,RelativeSource={RelativeSource Self}}" Value="True">
+                                            <Setter Property="IsSelected" Value="True" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ListBox.Resources>
+                        </ListBox>
+                    </StackPanel>
+                </StackPanel>
+                <Button Name="addData2Button" Click="addData2Button_Click"  Width="120" Margin="0 10 0 0" FontSize="20" FontWeight="Bold" Background="#FFE5E5E5">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                    <TextBlock Text="Добавить" VerticalAlignment="Center" Height="30"/>
+                </Button>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</Page>

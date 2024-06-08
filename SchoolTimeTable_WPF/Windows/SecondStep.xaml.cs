@@ -61,8 +61,10 @@ namespace SchoolTimeTable_WPF.Windows
             {
                 cmd = new MySqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = $"Select Lesson_Class.lesson_id, Lesson_Class.class_id, Lessons.lesson_name From Lesson_Class, Lessons " +
-                                  $"Where Lesson_Class.lesson_id=Lessons.lesson_id AND Lesson_Class.class_id='{ classNumber.Text }';";
+                cmd.CommandText = $"Select Lesson_Class.lesson_id, Lesson_Class.class_id, Lessons.lesson_name " +
+                                  $"From Lesson_Class, Lessons " +
+                                  $"Where Lesson_Class.lesson_id=Lessons.lesson_id " +
+                                  $"AND Lesson_Class.class_id='{ classNumber.Text }';";
                 con.Open();
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -74,7 +76,6 @@ namespace SchoolTimeTable_WPF.Windows
                     };
                     tb_subject.Items.Add(lessons);
                 }
-
             }
             catch
             {
@@ -86,7 +87,6 @@ namespace SchoolTimeTable_WPF.Windows
                 dr.Close();
                 con.Close();
             }
-
         }
 
 

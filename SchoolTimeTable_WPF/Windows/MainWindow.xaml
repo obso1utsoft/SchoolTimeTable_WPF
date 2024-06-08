@@ -28,19 +28,32 @@
         </Style>
     </Window.Resources>
     <Grid MouseDown="Border_MouseDown">
-        <Rectangle Fill="#FF78E6AA" HorizontalAlignment="Center" Height="50" Margin="0,0,0,0" Stroke="Black" VerticalAlignment="Top" Width="800"/>
-        <Label Height="40" Width="40" Margin="5,5,0,0" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Cursor="No">
-            <Label.Background>
-                <ImageBrush ImageSource="Resources/icons8-calendar-64.png" Stretch="Uniform"/>
-            </Label.Background>
-        </Label>
-        <Label Height="41" Width="183" Margin="40,7,0,0" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22.5" FontWeight="Bold" FontFamily="Segoe">Расписание</Label>
-        <Button x:Name="exitButton" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,15,0" Style="{StaticResource MyButton}" BorderThickness="0" Click="exitButton_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="Resources/icons8-delete-64.png" Stretch="Uniform"/>
-            </Button.Background>
-        </Button>
-        <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="40" Margin="0,52.5,0,0" VerticalAlignment="Top" Width="796" Maximum="100"/>
-        <WrapPanel x:Name="userControl" Height="505" Width="800" Margin="0,95,0,0" Orientation="Vertical" HorizontalAlignment="Stretch"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Rectangle Fill="#FF78E6AA" HorizontalAlignment="Center" Height="50" Stroke="Black" VerticalAlignment="Top" Width="800"/>
+            <Label Height="40" Width="40" Margin="5,5,0,0" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Label.Background>
+                    <ImageBrush ImageSource="Resources/icons8-calendar-64.png" Stretch="Uniform"/>
+                </Label.Background>
+            </Label>
+            <Label Height="41" Width="183" Margin="40,7,0,0" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22.5" FontWeight="Bold" FontFamily="Segoe">Расписание</Label>
+            <Button x:Name="logOutButton" Height="35" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,7.5,50,0" Style="{StaticResource MyButton}" BorderThickness="0" Click="logOutButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/icons8-exit-64.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="exitButton" Height="40" Width="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,5,0" Style="{StaticResource MyButton}" BorderThickness="0" Click="exitButton_Click">
+                <Button.Background>
+                    <ImageBrush ImageSource="Resources/icons8-delete-64.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+        </Grid>
+        <StackPanel Grid.Row="1">
+            <ProgressBar x:Name="progressBar" HorizontalAlignment="Center" Height="40" VerticalAlignment="Top" Width="796" Maximum="90"/>
+            <WrapPanel x:Name="userControl" Height="505" Width="800" Orientation="Vertical" HorizontalAlignment="Stretch"/>
+        </StackPanel>
     </Grid>
 </Window>

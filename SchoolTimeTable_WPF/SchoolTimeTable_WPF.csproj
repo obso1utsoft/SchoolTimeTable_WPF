@@ -129,17 +129,44 @@
     <Compile Include="Controller\RequestSender.cs" />
     <Compile Include="Model\Plan.cs" />
     <Compile Include="ScheduleGenerate.cs" />
+    <Compile Include="Windows\AddDataPage.xaml.cs">
+      <DependentUpon>AddDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AdminWindow.xaml.cs">
+      <DependentUpon>AdminWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SecondStep.xaml.cs">
       <DependentUpon>SecondStep.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\SheduleView.xaml.cs">
       <DependentUpon>SheduleView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\SubjectsPage.xaml.cs">
+      <DependentUpon>SubjectsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\teacherPage.xaml.cs">
+      <DependentUpon>teacherPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Windows\AddDataPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AdminWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\BasicStep.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\FirstStep.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +194,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\SheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\SubjectsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\teacherPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,6 +243,21 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Windows\Resources\icons8-exit-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Windows\Resources\icons8-user-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Windows\Resources\icons8-teacher-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Windows\Resources\icons8-books-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Windows\Resources\icons8-reload-64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
