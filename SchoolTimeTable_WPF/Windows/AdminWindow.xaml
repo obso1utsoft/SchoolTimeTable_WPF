@@ -74,6 +74,12 @@
                             <ImageBrush ImageSource="Resources/icons8-teacher-64.png" Stretch="Uniform"/>
                         </Button.Background>
                     </Button>
+                    <Rectangle Fill="Black" Height="2" Stroke="Black" Opacity="0.1" Margin="0 10 0 10" HorizontalAlignment="Center" Width="40" StrokeDashCap="Round" StrokeDashArray="0" RadiusX="0.5" RadiusY="0.5"/>
+                    <Button Width="45" Height="45" Name="classesButton" Click="classesButton_Click" Style="{StaticResource MyButton}">
+                        <Button.Background>
+                            <ImageBrush ImageSource="Resources/icons8-student-64.png" Stretch="Uniform"/>
+                        </Button.Background>
+                    </Button>
                     <Rectangle Fill="Black" Height="2" Stroke="Black" Opacity="0.1" Margin="0 10 0 5" HorizontalAlignment="Center" Width="40" StrokeDashCap="Round" StrokeDashArray="0" RadiusX="0.5" RadiusY="0.5"/>
                     <Button Width="45" Height="45" Name="subjectsButton" Click="subjectsButton_Click" Style="{StaticResource MyButton}">
                         <Button.Background>

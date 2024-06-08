@@ -36,6 +36,11 @@ namespace SchoolTimeTable_WPF.Windows
             teacherPage teacherPage = new teacherPage();
             mainFrame.Content = teacherPage;
         }
+        private void classesButton_Click(object sender, RoutedEventArgs e)
+        {
+            ClassesPage classesPage = new ClassesPage();
+            mainFrame.Content = classesPage;
+        }
         private void usersButton_Click(object sender, RoutedEventArgs e)
         {
 

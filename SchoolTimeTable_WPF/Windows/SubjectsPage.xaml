@@ -39,9 +39,19 @@
         </Button>
         <DataGrid Name="dataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="id" Binding="{ Binding class_id}"/>
-                <DataGridTextColumn Header="Класс" Binding="{ Binding class_name}"/>
-                <DataGridTextColumn Header="Предметы" Binding="{ Binding lessons}"/>
+                <DataGridTextColumn Header="id" Binding="{ Binding lesson_id}"/>
+                <DataGridTextColumn Header="Предмет" Binding="{ Binding lesson_name}"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="deleteButton" Click="deleteButton_Click"  Width="40" Grid.Row="0" Style="{StaticResource MyButton}">
+                                <Button.Background>
+                                    <ImageBrush ImageSource="Resources/icons8-delete-64.png" Stretch="Uniform"/>
+                                </Button.Background>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

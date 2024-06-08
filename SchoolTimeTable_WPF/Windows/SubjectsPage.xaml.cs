@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
+using static SchoolTimeTable_WPF.Windows.ClassesPage;
 
 namespace SchoolTimeTable_WPF.Windows
 {
@@ -41,9 +43,7 @@ namespace SchoolTimeTable_WPF.Windows
             {
                 cmd = new MySqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = $"SELECT Classes.class_id, Classes.class_name, GROUP_CONCAT(Lessons.lesson_name SEPARATOR ', ') AS lessons " +
-                                  $"FROM Classes, Lesson_Class, Lessons WHERE Classes.class_id=Lesson_Class.class_id " +
-                                  $"AND Lessons.lesson_id=Lesson_Class.lesson_id GROUP BY Classes.class_id;";
+                cmd.CommandText = $"SELECT lesson_id, lesson_name FROM Lessons";
                 con.Open();
                 dt = new DataTable();
                 da = new MySqlDataAdapter(cmd);
@@ -58,6 +58,48 @@ namespace SchoolTimeTable_WPF.Windows
             finally
             {
                 con.Close();
+            }
+        }
+
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxResult result;
+
+            result = MessageBox.Show("Вы уверены, что хотите удалить запись?", "Удаление", buttons,
+            MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    string lessons = "";
+                    for (int i = 0; i < dataGrid.SelectedItems.Count; i++)
+                    {
+                        System.Data.DataRowView selectedFile = (System.Data.DataRowView)dataGrid.SelectedItems[i];
+                        lessons = Convert.ToString(selectedFile.Row.ItemArray[0]);
+                    }
+                    cmd = new MySqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = $"DELETE FROM Lesson_Class WHERE Lesson_Class.lesson_id = '{ lessons }';" +
+                                      $"DELETE FROM Lesson_Teacher WHERE Lesson_Teacher.lesson_id = '{ lessons }';" +
+                                      $"DELETE FROM Lessons WHERE Lessons.lesson_id = '{lessons}';" +
+                                      $"UPDATE Lessons SET Lessons.lesson_id = Lessons.lesson_id-1  WHERE Lessons.lesson_id>'{ lessons }';" +
+                                      $"ALTER TABLE Lessons AUTO_INCREMENT = 1";
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Запись удалена!", Title = "Успех");
+                }
+                catch
+                {
+                    con.Close();
+                    MessageBox.Show("Произошла ошибка во время удаления записи!", Title = "Ошибка");
+                }
+                finally
+                {
+                    con.Close();
+                }
+                LoadDataGrid();
             }
         }
     }

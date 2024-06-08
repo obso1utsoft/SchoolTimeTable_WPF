@@ -1,10 +1,8 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,22 +19,20 @@ using static SchoolTimeTable_WPF.Windows.teacherPage;
 namespace SchoolTimeTable_WPF.Windows
 {
     /// <summary>
-    /// Логика взаимодействия для teacherPage.xaml
+    /// Логика взаимодействия для ClassesPage.xaml
     /// </summary>
-    public partial class teacherPage : Page
+    public partial class ClassesPage : Page
     {
         MySqlConnection con = new MySqlConnection("Server=127.0.0.1;Database=school_schedule;user=root;charset=utf8");
         MySqlCommand cmd;
         MySqlDataAdapter da;
         DataTable dt;
         MySqlDataReader dr;
-        public teacherPage()
+        public ClassesPage()
         {
             InitializeComponent();
-
             LoadDataGrid();
         }
-
         private void reloadButton_Click(object sender, RoutedEventArgs e)
         {
             LoadDataGrid();
@@ -47,9 +43,9 @@ namespace SchoolTimeTable_WPF.Windows
             {
                 cmd = new MySqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = $"SELECT Teachers.teacher_name, GROUP_CONCAT(Lessons.lesson_name SEPARATOR ', ') AS lessons " +
-                                  $"FROM Teachers, Lesson_Teacher, Lessons WHERE Teachers.teacher_id=Lesson_Teacher.teacher_id " +
-                                  $"AND Lessons.lesson_id=Lesson_Teacher.lesson_id GROUP BY Teachers.teacher_id;";
+                cmd.CommandText = $"SELECT Classes.class_name, GROUP_CONCAT(Lessons.lesson_name SEPARATOR ', ') AS lessons " +
+                                  $"FROM Classes, Lesson_Class, Lessons WHERE Classes.class_id=Lesson_Class.class_id " +
+                                  $"AND Lessons.lesson_id=Lesson_Class.lesson_id GROUP BY Classes.class_id;";
                 con.Open();
                 dt = new DataTable();
                 da = new MySqlDataAdapter(cmd);
@@ -59,7 +55,7 @@ namespace SchoolTimeTable_WPF.Windows
             catch
             {
                 con.Close();
-                MessageBox.Show("Произошла ошибка во время загрузки данных!", Title="Ошибка");
+                MessageBox.Show("Произошла ошибка во время загрузки данных!", Title = "Ошибка");
             }
             finally
             {
@@ -78,38 +74,37 @@ namespace SchoolTimeTable_WPF.Windows
             {
                 try
                 {
-                    string teacher = "";
-                    List<Teachers> list = new List<Teachers>();
+                    string classes = "";
+                    List<Classes> list = new List<Classes>();
                     for (int i = 0; i < dataGrid.SelectedItems.Count; i++)
                     {
                         System.Data.DataRowView selectedFile = (System.Data.DataRowView)dataGrid.SelectedItems[i];
-                        teacher = Convert.ToString(selectedFile.Row.ItemArray[0]);
+                        classes = Convert.ToString(selectedFile.Row.ItemArray[0]);
                     }
                     cmd = new MySqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = $"SELECT Teachers.teacher_id, Lessons.lesson_id " +
-                                      $"FROM Teachers, Lesson_Teacher, Lessons " +
-                                      $"WHERE Teachers.teacher_id=Lesson_Teacher.teacher_id " +
-                                      $"AND Lessons.lesson_id=Lesson_Teacher.lesson_id " +
-                                      $"AND Teachers.teacher_id = (" +
-                                      $"SELECT Teachers.teacher_id FROM Teachers " +
-                                      $"WHERE Teachers.teacher_name = '{teacher}')";
+                    cmd.CommandText = $"SELECT Classes.class_id, Lessons.lesson_id " +
+                                      $"FROM Classes, Lesson_Class, Lessons " +
+                                      $"WHERE Classes.class_id=Lesson_Class.class_id " +
+                                      $"AND Lessons.lesson_id=Lesson_Class.lesson_id " +
+                                      $"AND Classes.class_id = (" +
+                                      $"SELECT Classes.class_id FROM Classes " +
+                                      $"WHERE Classes.class_name = '{ classes }');";
                     con.Open();
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
-                        var teachers = new Teachers
+                        var classesid = new Classes
                         {
-                            TeacherId = (int)dr["teacher_id"],
+                            ClassesId = (int)dr["class_id"],
                             LessonId = (int)dr["lesson_id"]
                         };
-                        list.Add(teachers);
+                        list.Add(classesid);
                     }
                     dr.Close();
                     foreach (var item in list)
                     {
-                        cmd.CommandText = $"DELETE FROM Lesson_Teacher WHERE Lesson_Teacher.lesson_id = '{item.LessonId}' AND Lesson_Teacher.teacher_id = '{item.TeacherId}';" +
-                                          $"DELETE FROM Teachers WHERE Teachers.teacher_id = '{list[0].TeacherId}';";
+                        cmd.CommandText = $"DELETE FROM Lesson_Class WHERE Lesson_Class.lesson_id = '{item.LessonId}' AND Lesson_Class.class_id = '{item.ClassesId}'";
                         cmd.ExecuteNonQuery();
                     }
                     MessageBox.Show("Запись удалена!", Title = "Успех");
@@ -126,9 +121,9 @@ namespace SchoolTimeTable_WPF.Windows
                 LoadDataGrid();
             }
         }
-        public class Teachers
+        public class Classes
         {
-            public int TeacherId { get; set; }
+            public int ClassesId { get; set; }
             public int LessonId { get; set; }
         }
     }

@@ -144,6 +144,9 @@
     <Compile Include="Windows\SheduleView.xaml.cs">
       <DependentUpon>SheduleView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ClassesPage.xaml.cs">
+      <DependentUpon>ClassesPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\SubjectsPage.xaml.cs">
       <DependentUpon>SubjectsPage.xaml</DependentUpon>
     </Compile>
@@ -194,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\SheduleView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ClassesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -258,6 +265,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Windows\Resources\icons8-reload-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Windows\Resources\icons8-student-64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
