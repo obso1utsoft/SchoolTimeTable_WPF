@@ -301,7 +301,7 @@ namespace SchoolTimeTable_WPF.Windows
                     message = "Предмет добавлен к преподавателю и предмет добавлен к классу";
                     MessageBox.Show(message, Title = "Успех");
                 }
-                else if ((!String.IsNullOrWhiteSpace(teacherComboBox.Text) && teachers.Count != 0) && (String.IsNullOrWhiteSpace(classComboBox.Text) || subjects.Count != 0))
+                else if ((!String.IsNullOrWhiteSpace(teacherComboBox.Text) && teachers.Count != 0) && (String.IsNullOrWhiteSpace(classComboBox.Text) || subjects.Count == 0))
                 {
                     foreach (var item in teachers)
                     {
@@ -314,7 +314,7 @@ namespace SchoolTimeTable_WPF.Windows
                     message = "Предмет добавлен к преподавателю";
                     MessageBox.Show(message, Title = "Успех");
                 }
-                else if ((String.IsNullOrWhiteSpace(teacherComboBox.Text) || teachers.Count != 0) && (!String.IsNullOrWhiteSpace(classComboBox.Text) && subjects.Count != 0))
+                else if ((String.IsNullOrWhiteSpace(teacherComboBox.Text) || teachers.Count == 0) && (!String.IsNullOrWhiteSpace(classComboBox.Text) && subjects.Count != 0))
                 {
                     foreach (var item in subjects)
                     {

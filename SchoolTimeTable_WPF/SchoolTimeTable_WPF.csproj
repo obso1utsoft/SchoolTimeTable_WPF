@@ -126,11 +126,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controller\RequestSender.cs" />
-    <Compile Include="Model\Plan.cs" />
     <Compile Include="ScheduleGenerate.cs" />
     <Compile Include="Windows\AddDataPage.xaml.cs">
       <DependentUpon>AddDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddUser.xaml.cs">
+      <DependentUpon>AddUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
@@ -153,7 +154,14 @@
     <Compile Include="Windows\teacherPage.xaml.cs">
       <DependentUpon>teacherPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\UsersPage.xaml.cs">
+      <DependentUpon>UsersPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="Windows\AddDataPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\AddUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\teacherPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\UsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

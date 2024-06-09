@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,21 +19,26 @@ using System.Windows.Shapes;
 using Xceed.Wpf.Toolkit.Primitives;
 using Xceed.Wpf.Toolkit.PropertyGrid.Attributes;
 using static SchoolTimeTable_WPF.ScheduleGenerator;
+using static SchoolTimeTable_WPF.Windows.FirstStep;
 
 namespace SchoolTimeTable_WPF.Windows
 {
     /// <summary>
     /// Логика взаимодействия для SheduleView.xaml
     /// </summary>
+    /// 
     public partial class SheduleView : UserControl
     {
-
         List<List<List<Lesson>>> schedules = ScheduleGenerator.schedules;
         DataTable dt;
         public SheduleView()
         {
             InitializeComponent();
 
+            dataGridView();
+        }
+        private void dataGridView()
+        {
             if (!(schedules[5]?.Any() ?? true) || SingletonSchedule.GetInstance().Input.StudyingSystem == 5)
             { sixDay.Visibility = Visibility.Collapsed; }
             else { sixDay.Visibility = Visibility.Visible; }
@@ -93,6 +99,58 @@ namespace SchoolTimeTable_WPF.Windows
                 case 5: f = grid6Day; break;
             }
             return f;
+        }
+
+        private void printButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (tabControl.SelectedIndex == 0)
+            {
+                PrintDialog pd = new PrintDialog();
+                if (pd.ShowDialog() == true)
+                {
+                    pd.PrintVisual(grid1Day, "My First Print Job");
+                }
+            }
+            else if (tabControl.SelectedIndex == 1)
+            {
+                PrintDialog pd = new PrintDialog();
+                if (pd.ShowDialog() == true)
+                {
+                    pd.PrintVisual(grid2Day, "My First Print Job");
+                }
+            }
+            else if (tabControl.SelectedIndex == 2)
+            {
+                PrintDialog pd = new PrintDialog();
+                if (pd.ShowDialog() == true)
+                {
+                    pd.PrintVisual(grid3Day, "My First Print Job");
+                }
+            }
+            else if (tabControl.SelectedIndex == 3)
+            {
+                PrintDialog pd = new PrintDialog();
+                if (pd.ShowDialog() == true)
+                {
+                    pd.PrintVisual(grid4Day, "My First Print Job");
+                }
+            }
+            else if (tabControl.SelectedIndex == 4)
+            {
+                PrintDialog pd = new PrintDialog();
+                if (pd.ShowDialog() == true)
+                {
+                    pd.PrintVisual(grid5Day, "My First Print Job");
+                }
+            }
+            else if (tabControl.SelectedIndex == 5)
+            {
+                PrintDialog pd = new PrintDialog();
+                if (pd.ShowDialog() == true)
+                {
+                    pd.PrintVisual(grid6Day, "My First Print Job");
+                }
+            }
         }
     }
 }
